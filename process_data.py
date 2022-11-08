@@ -5,29 +5,39 @@ import pandas as pd
 from caculate_humoment import caculate_HuMM
 from get_feature import get_features, get_feature
 from write_data import write_file
+from write_data import write_data_train
 
 
-def split_data(file_path):
-    data = pd.read_csv(file_path)
+def split_data(file_path_base, feature_A, feature_B):
+    A_features = pd.read_csv(f'{file_path_base}{feature_A}_data/{feature_A}_feature.csv').to_numpy()
+    B_features = pd.read_csv(f'{file_path_base}{feature_B}_data/{feature_B}_feature.csv').to_numpy()
     test_data = np.zeros((10, 7))
-    train_data = np.zeros((50, 7))
+    train_data_feature_A = np.zeros((40, 7))
+    train_data_feature_B = np.zeros((40, 7))
 
-    for i in range(0, 10):
-        for j in range(0, 7):
-            test_data[i][j] = data.loc[i][j]
-    write_file(test_data, 'data/train/test_data')
-# index = 0
-# for key in range(0, 10, 2):
-    for i in range(0, 10):
-        for j in range(0, 7):
-            # if i == key or i == key + 1:
-            #     continue
-            train_data[i][j] = data.loc[i][j]
-            index += 1
-            
-    write_file(train_data, 'data/train/train_data')
-    return train_data, test_data
+    train_data_feature_A[0:8]   = A_features[2:10,:]
+    train_data_feature_A[8:10]  = A_features[0:2,:]
+    train_data_feature_A[10:16] = A_features[4:10,:]
+    train_data_feature_A[16:20] = A_features[0:4,:]
+    train_data_feature_A[20:24] = A_features[6:10,:]
+    train_data_feature_A[24:30] = A_features[0:6,:]
+    train_data_feature_A[30:32] = A_features[8:10,:]
+    train_data_feature_A[32:40] = A_features[0:8,:]
+    write_data_train(train_data_feature_A, A_features, feature_A)
+    
+    train_data_feature_B[0:8]   = B_features[2:10,:]
+    train_data_feature_B[8:10]  = B_features[0:2,:]
+    train_data_feature_B[10:16] = B_features[4:10,:]
+    train_data_feature_B[16:20] = B_features[0:4,:]
+    train_data_feature_B[20:24] = B_features[6:10,:]
+    train_data_feature_B[24:30] = B_features[0:6,:]
+    train_data_feature_B[30:32] = B_features[8:10,:]
+    train_data_feature_B[32:40] = B_features[0:8,:]
+    write_data_train(train_data_feature_B, B_features, feature_B)
+    
+    return train_data_feature_A, A_features, train_data_feature_B, B_features
 
 
 if __name__ == "__main__":
-    train_data, test_data = split_data('data/suplo_data/suplo_feature.csv')
+    train_data_tomato, test_data_tomato, train_data_suplo, test_data_suplo = split_data('data/','suplo','tomato')
+    
