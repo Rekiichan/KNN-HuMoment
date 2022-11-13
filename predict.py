@@ -39,3 +39,4 @@ if __name__ == "__main__":
     train_data_tomato = pd.read_csv(f'{file_path}/train_data_tomato.csv').to_numpy()
     test_data_suplo   = pd.read_csv(f'{file_path}/test_data_suplo.csv').to_numpy()
     test_data_tomato  = pd.read_csv(f'{file_path}/test_data_tomato.csv').to_numpy()
+

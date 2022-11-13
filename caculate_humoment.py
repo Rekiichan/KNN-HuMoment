@@ -110,3 +110,4 @@ def caculate_HuMM(src):
 #     res = caculate_HuMM('/gray_img/tomato/tomato gray 2.jpg')
     # for i in res:
         #print(i)
+

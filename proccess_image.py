@@ -39,5 +39,7 @@ if __name__ == "__main__":
         tomato_data.append(cvtToGray(img))
         tomato_data[i] = processConvert(tomato_data[i])
         cv.imwrite(f"tomato gray {i}.jpg",tomato_data[i])
+        
 
+    
     

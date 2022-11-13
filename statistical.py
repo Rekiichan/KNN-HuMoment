@@ -14,26 +14,26 @@ def test(train_data_A, train_data_B, test_data_A, test_data_B, K_test=3):
 
     for i in range(0, 5):
         tmp = predict(
-            train_data_B[i*8:i*8+8], train_data_A[i*8:i*8+8], test_data_A[i*2], K_test)
+            train_data_B[i*8:i*8+8], train_data_A[i*8:i*8+8], test_data_A[0], K_test)
         if tmp == 'P':
             TP += 1
         else:
             FP += 1
         tmp = predict(
-            train_data_B[i*8:i*8+8], train_data_A[i*8:i*8+8], test_data_A[i*2+1], K_test)
+            train_data_B[i*8:i*8+8], train_data_A[i*8:i*8+8], test_data_A[1], K_test)
         if tmp == 'P':
             TP += 1
         else:
             FP += 1
 
         tmp = predict(
-            train_data_B[i*8:i*8+8], train_data_A[i*8:i*8+8], test_data_B[i*2], K_test)
+            train_data_B[i*8:i*8+8], train_data_A[i*8:i*8+8], test_data_B[0], K_test)
         if tmp == 'N':
             TN += 1
         else:
             FN += 1
         tmp = predict(
-            train_data_B[i*8:i*8+8], train_data_A[i*8:i*8+8], test_data_B[i*2+1], K_test)
+            train_data_B[i*8:i*8+8], train_data_A[i*8:i*8+8], test_data_B[1], K_test)
         if tmp == 'N':
             TN += 1
         else:
@@ -75,3 +75,4 @@ if __name__ == "__main__":
     print(f'ACC: {ACC}')
     # res = predict(train_data_tomato, train_data_suplo, test_data_suplo[0], 5)
     # print(res)
+

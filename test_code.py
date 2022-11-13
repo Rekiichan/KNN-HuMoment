@@ -31,3 +31,4 @@ def split_data(file_path):
 
 if __name__ == "__main__":
     train_data, test_data = split_data('data/suplo_data/suplo_feature.csv')
+

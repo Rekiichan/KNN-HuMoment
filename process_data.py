@@ -41,3 +41,4 @@ def split_data(file_path_base, feature_A, feature_B):
 if __name__ == "__main__":
     train_data_tomato, test_data_tomato, train_data_suplo, test_data_suplo = split_data('data/','suplo','tomato')
     
+    
