@@ -19,6 +19,7 @@ def processConvert(src):
         for c in range (cols):
             if converted_image[r][c] > 30:
                 converted_image[r][c] = 255
+    converted_image = pre_processImage(converted_image)
     return converted_image
 
 def cvtToGray(src):

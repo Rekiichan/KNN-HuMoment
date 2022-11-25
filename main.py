@@ -5,11 +5,11 @@ from write_data import write_file
 
 if __name__ == "__main__":
     
-    # get feature and write data feature
+    # get feature and write data feature (uncomment if dataset has changed)
     
-    suplo_feature, tomato_feature = get_features()
-    write_file(suplo_feature,'data/suplo_data/suplo_feature')
-    write_file(tomato_feature,'data/tomato_data/tomato_feature')
+    # suplo_feature, tomato_feature = get_features()
+    # write_file(suplo_feature,'data/suplo_data/suplo_feature')
+    # write_file(tomato_feature,'data/tomato_data/tomato_feature')
     
     # load data and thong ke
     
